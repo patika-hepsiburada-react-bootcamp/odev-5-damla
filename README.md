@@ -7,6 +7,7 @@
   - [ReactJS](https://beta.reactjs.org)
   - [TypeScript](https://www.typescriptlang.org)
   - [SASS](https://sass-lang.com)
+  - [React Router](https://reactrouter.com)
   - [Classnames](https://www.npmjs.com/package/classnames)
 
 - [This project](https://codepen.io/mehmetseven/pen/OJRzLjV) is used to understand fundamental requirements.
