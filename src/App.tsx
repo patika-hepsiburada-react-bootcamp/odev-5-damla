@@ -1,10 +1,17 @@
-import "./App.css";
+import { ReactElement } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Error404 from "./pages/Error404";
+import Home from "./pages/Home";
+// import styles from "./styles.module.scss";
 
-function App() {
+function App(): ReactElement {
   return (
-    <div className="App">
-      <header className="App-header">To-Do App</header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="*" component={Error404} />
+      </Switch>
+    </Router>
   );
 }
 
