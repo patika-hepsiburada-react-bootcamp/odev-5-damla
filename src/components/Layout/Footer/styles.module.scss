@@ -11,6 +11,7 @@
   background-color: variables.$secondary-bg-color;
   font-size: small;
   color: variables.$secondary-font-color;
+  border-top: solid 1px variables.$border-color;
 
   .link {
     &:link {
