@@ -5,62 +5,81 @@ import {
   ReactElement,
   ReactNode,
 } from "react";
-
+import { TodoItem, TodoContextState } from "../interfaces";
 import { emojis } from "../utils/emojis";
 import { getRandom } from "../utils/helpers";
-
-interface TodoContextState {
-  todoItems: string[];
-  addTodoItem: (name: string) => void;
-  removeTodoItem: (idx: number) => void;
-  removeAll: () => void;
-  updateTodoItem: (idx: number, data: string) => void;
-  emoji: string;
-}
+import { nanoid } from "nanoid";
 
 interface Props {
   children: ReactNode;
 }
 
+// set default values for initializing
 const contextDefaultValues: TodoContextState = {
-  todoItems: ["Add CRUD operations to Todo Context."],
+  todoItems: [
+    {
+      id: "1",
+      value: "Implement CRUD processes.",
+      done: true,
+    },
+  ],
   addTodoItem: () => {},
   removeTodoItem: () => {},
   removeAll: () => {},
   updateTodoItem: () => {},
-  emoji: emojis[getRandom(emojis.length)], // select randomly from emojis
+  emoji: emojis[getRandom(emojis.length)], // select randomly from emojis list
 };
 
 // created context with default values
 const TodoContext = createContext<TodoContextState>(contextDefaultValues);
 
 export const TodoProvider = ({ children }: Props): ReactElement => {
-  const [todoItems, setTodoItems] = useState<string[]>(
+  // set default values
+  const [todoItems, setTodoItems] = useState<TodoItem[]>(
     contextDefaultValues.todoItems
   );
   const [emoji] = useState(contextDefaultValues.emoji);
 
-  const addTodoItem = (newTodoItem: string) =>
-    setTodoItems((todoItems) => [...todoItems, newTodoItem]);
+  const addTodoItem = (newTodoItem: TodoItem) =>
+    // add item with new id generated
+    setTodoItems((todoItems) => [
+      ...todoItems,
+      { ...newTodoItem, id: nanoid() },
+    ]);
 
-  const removeTodoItem = (idx: number) => {
+  // remove item by using id value
+  const removeTodoItem = (id: string) => {
     const data = todoItems;
-    if (!data[idx]) {
-      alert("No task found in here!");
+
+    // find the item's index to remove it
+    const index = data.findIndex((todoItem) => todoItem.id === id);
+
+    // to check if the item exist in the list
+    if (index < 0) {
+      alert("No item found in the list");
       return;
     }
-    data.splice(idx, 1);
+
+    // splice value found in the index
+    data.splice(index, 1);
+
+    // data list will be changed because we are editing on the reference. Therefore, it is enough
+    // to spread data values
     setTodoItems([...data]);
   };
 
+  // Firstly, check if there any value exists in the list.
+  // If does exist, set todo items list to an empty array otherwise, give alert to inform user.
   const removeAll = () =>
     todoItems.length === 0
-      ? alert("There is no task in the list!")
+      ? alert("There are no tasks found in the list!")
       : setTodoItems([]);
 
-  const updateTodoItem = (idx: number, item: string) => {
+  // Update item with id and item values.
+  const updateTodoItem = (id: string, item: TodoItem) => {
     const data = todoItems;
-    data[idx] = item;
+    const index = data.findIndex((todoItem) => todoItem.id === id);
+    data[index] = item;
     setTodoItems([...data]);
   };
 
@@ -73,6 +92,7 @@ export const TodoProvider = ({ children }: Props): ReactElement => {
     emoji,
   };
 
+  // add values to provider to reach them out from another component
   return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;
 };
 
