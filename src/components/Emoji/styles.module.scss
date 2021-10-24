@@ -1,0 +1,19 @@
+@use "../../global/variables.scss" as variables;
+
+.container {
+  width: 56px;
+  height: 56px;
+  background: #24242d;
+  border: 1px solid #29292f;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+
+  @media only screen and (max-width: variables.$mobile-width) {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+}
