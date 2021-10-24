@@ -5,14 +5,47 @@
   height: 60vh;
   width: 700px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  padding-top: 2rem;
   align-items: center;
   box-shadow: 0 0 10px variables.$secondary-bg-color;
   border: 1px solid variables.$secondary-font-color;
   border-radius: 1%;
   background-color: variables.$secondary-bg-color;
 
-  @media only screen and (max-width: variables.$mobile-tablet-width) {
+  .header {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    color: variables.$primary-font-color;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+
+    .title {
+      @media only screen and (max-width: variables.$mobile-width) {
+        max-width: 200px;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+        font-weight: 700;
+      }
+
+      @media only screen and (min-width: variables.$mobile-width) and (max-width: variables.$tablet-width) {
+        max-width: 400px;
+        padding: 0 1.5rem;
+      }
+    }
+
+    @media only screen and (max-width: variables.$mobile-width) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media only screen and (max-width: variables.$tablet-width) {
     width: 100%;
     height: 100%;
     border-left: 0;
