@@ -2,7 +2,7 @@ import { ReactElement, ReactNode } from "react";
 import Header from "./Header";
 import Section from "./Section";
 import Footer from "./Footer";
-// import styles from "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface Props {
 
 export default function Layout({ children }: Props): ReactElement {
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
       <Section>{children}</Section>
       <Footer />
