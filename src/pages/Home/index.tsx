@@ -1,12 +1,13 @@
 import { ReactElement } from "react";
 import Layout from "../../components/Layout";
 import Container from "../../components/Container";
-// import styles from "./styles.module.scss";
+import { useTodos } from "../../contexts/TodoContext";
 
 export default function Home(): ReactElement {
+  const { emoji } = useTodos();
   return (
     <Layout>
-      <Container>Home</Container>
+      <Container>{emoji}</Container>
     </Layout>
   );
 }
