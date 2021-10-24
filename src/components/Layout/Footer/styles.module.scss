@@ -1,0 +1,27 @@
+@use "../../../global/variables.scss" as variables;
+
+.container {
+  display: flex;
+  min-height: 5vh;
+  padding: 2px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  background-color: variables.$secondary-bg-color;
+  font-size: small;
+  color: variables.$secondary-font-color;
+
+  .link {
+    &:link {
+      color: variables.$link-color;
+    }
+    &:visited {
+      color: variables.$visited-link-color;
+    }
+
+    &:hover {
+      color: variables.$hover-link-color;
+    }
+  }
+}

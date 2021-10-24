@@ -11,6 +11,7 @@
   - [Classnames](https://www.npmjs.com/package/classnames)
 
 - [This project](https://codepen.io/mehmetseven/pen/OJRzLjV) is used to understand fundamental requirements.
+- [This design's](<https://www.figma.com/file/0EADQZtB0IAJKxpyPOCKdt/Task-Lists-for-Figma-Files-(Community)?node-id=61%3A306>) components are used for UI.
 
 - Project's PM board is found in [here.](https://github.com/patika-hepsiburada-react-bootcamp/odev-5-damla/projects/1?add_cards_query=is%3Aopen)
 

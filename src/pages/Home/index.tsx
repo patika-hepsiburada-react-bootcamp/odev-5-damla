@@ -1,12 +1,14 @@
 import { ReactElement } from "react";
 import Layout from "../../components/Layout";
 import Container from "../../components/Container";
-// import styles from "./styles.module.scss";
+import TodoList from "../../components/TodoList";
 
 export default function Home(): ReactElement {
   return (
     <Layout>
-      <Container>Home</Container>
+      <Container>
+        <TodoList />
+      </Container>
     </Layout>
   );
 }
