@@ -1,0 +1,31 @@
+@use "../../global/variables.scss" as variables;
+
+.container {
+  outline: unset;
+  border: unset;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: variables.$secondary-font-color;
+  }
+}
+
+.update {
+  margin-right: 5px;
+}
+
+.remove .update {
+  background-color: variables.$primary-bg-color;
+
+  @media only screen and (max-width: variables.$tablet-width) {
+    background-color: variables.$secondary-font-color;
+  }
+}
+
+.removeAll {
+  width: 40%;
+}
