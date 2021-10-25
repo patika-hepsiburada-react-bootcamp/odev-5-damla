@@ -1,5 +1,29 @@
+@use "../../global/variables.scss" as variables;
+
 .container {
   display: flex;
-  justify-content: space-between;
-  color: white;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 7vh;
+
+  .cb {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.7rem;
+    outline: unset;
+  }
+
+  .done {
+    color: variables.$secondary-font-color;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .notDone {
+    color: variables.$primary-font-color;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+  }
 }

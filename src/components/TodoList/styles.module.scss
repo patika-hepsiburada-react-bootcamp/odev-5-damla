@@ -1,4 +1,41 @@
+@use "../../global/variables.scss" as variables;
+
 .container {
   display: flex;
   flex-direction: column;
+
+  .add {
+    display: flex;
+    justify-content: space-between;
+  }
+  .field {
+    outline: unset;
+    border: unset;
+    background-color: transparent;
+    padding: 5px;
+    width: 90%;
+    font-size: 18px;
+    line-height: 24px;
+    color: variables.$secondary-font-color;
+    border-bottom: solid 1px variables.$secondary-font-color;
+  }
+
+  .submit {
+    outline: unset;
+    border: unset;
+    min-width: 30px;
+    min-height: 100%;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: variables.$secondary-font-color;
+    }
+  }
+
+  @media only screen and (max-width: variables.$tablet-width) {
+    &:first-child {
+      padding-top: 1rem;
+      border-top: solid 1px variables.$secondary-font-color;
+    }
+  }
 }
