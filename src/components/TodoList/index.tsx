@@ -6,8 +6,7 @@ import { nanoid } from "nanoid";
 
 export default function TodoList(): ReactElement {
   const [task, setTask] = useState("");
-  const { todoItems, addTodoItem, removeTodoItem, removeAll, updateTodoItem } =
-    useTodo();
+  const { todoItems, addTodoItem } = useTodo();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // TODO: check if it is empty
@@ -38,26 +37,12 @@ export default function TodoList(): ReactElement {
             onClick={handleSubmit}
           />
         </div>
-        {todoItems.map((item, i) => (
-          <TodoListItem key={i} item={item} />
-        ))}
+        <div className={styles.items}>
+          {todoItems.map((item, i) => (
+            <TodoListItem key={i} item={item} />
+          ))}
+        </div>
       </li>
-      <button onClick={() => removeTodoItem("1")}>Remove 1</button>
-      <button
-        onClick={() =>
-          updateTodoItem("1", { id: "1", value: "test task", done: true })
-        }
-      >
-        Update
-      </button>
-      <button
-        onClick={() =>
-          addTodoItem({ id: nanoid(), value: "test task", done: false })
-        }
-      >
-        Add
-      </button>
-      <button onClick={removeAll}>Reset</button>
     </>
   );
 }

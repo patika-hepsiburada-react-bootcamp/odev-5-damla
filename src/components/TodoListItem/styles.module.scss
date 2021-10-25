@@ -2,9 +2,46 @@
 
 .container {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   min-height: 7vh;
+
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .update {
+      display: flex;
+      align-items: center;
+
+      .submit {
+        margin-left: 3px;
+        outline: unset;
+        border: unset;
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+        border-radius: 3px;
+
+        &:hover {
+          background-color: variables.$secondary-font-color;
+        }
+      }
+    }
+  }
+
+  .field {
+    outline: unset;
+    border: unset;
+    background-color: transparent;
+    padding: 5px;
+    width: 90%;
+    font-size: 18px;
+    line-height: 24px;
+    color: variables.$secondary-font-color;
+    border-bottom: solid 1px variables.$secondary-font-color;
+  }
 
   .cb {
     width: 24px;
